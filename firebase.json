@@ -1,0 +1,22 @@
+{
+  "hosting": [
+    {
+      "target": "LoginStalker",
+      "public": "dist/LoginStalker",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "run": {
+            "serviceId": "nest-angular-ssr",
+            "region": "us-central1"
+          }
+        }
+      ]
+    }
+  ]
+}

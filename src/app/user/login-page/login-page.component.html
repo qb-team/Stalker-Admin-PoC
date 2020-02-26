@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>Stalker login</h1>
+  <div *ngIf="!(afAuth.authState | async)">
+    <app-email-login></app-email-login>
+  </div>
+
+  <div *ngIf="afAuth.authState | async as user">
+    <p>
+      Ti sei loggato come: <strong>{{ user.email }}</strong>
+    </p>
+
+    <button class="btn btn-primary"  (click)="afAuth.auth.signOut()">Logout</button>
+  </div>
+</div>
