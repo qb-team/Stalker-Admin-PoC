@@ -8,7 +8,12 @@
     <p>
       Ti sei loggato come: <strong>{{ user.email }}</strong>
     </p>
-
+    <div>
+      <div *ngFor="let item of items | async ">
+        {{item.Nome}}
+        {{item.Valore}}
+      </div>
+    </div>
     <button class="btn btn-primary"  (click)="afAuth.auth.signOut()">Logout</button>
   </div>
 </div>

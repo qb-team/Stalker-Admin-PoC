@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import {Observable} from 'rxjs';
+import {AngularFireDatabase} from '@angular/fire/database';
 
 @Component({
   selector: 'app-login-page',
@@ -7,5 +9,12 @@ import { AngularFireAuth } from '@angular/fire/auth';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent {
-  constructor(public afAuth: AngularFireAuth) { }
+  title = 'LoginStalker';
+  name = '';
+  value= '';
+  items: Observable<any[]>;
+
+  constructor(public afAuth: AngularFireAuth, public db: AngularFireDatabase) {
+    this.items = db.list('items').valueChanges();
+  }
 }
