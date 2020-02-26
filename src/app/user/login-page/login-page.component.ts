@@ -10,8 +10,6 @@ import {AngularFireDatabase} from '@angular/fire/database';
 })
 export class LoginPageComponent {
   title = 'LoginStalker';
-  name = '';
-  value= '';
   items: Observable<any[]>;
 
   constructor(public afAuth: AngularFireAuth, public db: AngularFireDatabase) {
