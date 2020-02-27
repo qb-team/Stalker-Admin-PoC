@@ -15,3 +15,11 @@ h1{
 .col{
   padding: 0;
 }
+
+#login{
+  position: relative;
+  left: 26%;
+  margin-top: 10em;
+  text-align: center;
+}
+

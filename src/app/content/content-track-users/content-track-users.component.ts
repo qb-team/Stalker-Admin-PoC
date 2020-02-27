@@ -7,15 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContentTrackUsersComponent implements OnInit {
 
-  focused: boolean = true;
+  focused = true;
   organization;
-  present_users_org;
+  presentUsersOrg;
   constructor() {
-    this.present_users_org = this.getUsers();
+    this.presentUsersOrg = this.getUsers();
   }
 
-  getUsers()
-  {
+  getUsers() {
     // fetches data from the database
     // todo
   }

@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <!--Login--------------------------------------------------->
-  <div class="row" *ngIf="!(authenticationService.userData | async)">
+  <div id="login" class="row" *ngIf="!(authenticationService.userData | async)">
     <div class="col-md-6 col-md-offset-3">
       <div class="form-group">
           <label for="email">Email:</label>
@@ -15,9 +15,9 @@
   </div>
 </div>
   <!--Login--------------------------------------------------->
-<div class="container-fluid">
+<div class="container-fluid" *ngIf="authenticationService.userData | async" >
 
-  <div class="row" *ngIf="authenticationService.userData | async" >
+  <div class="row" >
     <app-menubar class="col"> </app-menubar>
   </div>
 
@@ -25,7 +25,7 @@
     <app-menu-functionality class="col-xs-4"></app-menu-functionality>
     <app-content class="col-xs-8 offset-xs-4"></app-content>
   </div>
-  
+
 </div>
 <!--<div class="col-xs-2">
   <h1 *ngIf="authenticationService && authenticationService.userData | async"> Benvenuto
