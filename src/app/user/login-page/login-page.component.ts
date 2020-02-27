@@ -13,6 +13,6 @@ export class LoginPageComponent {
   items: Observable<any[]>;
 
   constructor(public afAuth: AngularFireAuth, public db: AngularFireDatabase) {
-    this.items = db.list('items').valueChanges();
+    this.items = db.list('Organizzazione1').valueChanges();
   }
 }
