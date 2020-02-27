@@ -1,7 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
-      <h1 *ngIf="authenticationService && authenticationService.userData | async"> Benvenuto {{ (authenticationService.userData | async)?.email }} !</h1>
+      <h1 *ngIf="authenticationService && authenticationService.userData | async"> Benvenuto
+        {{ (authenticationService.userData | async)?.email }} !</h1>
       <div *ngIf="!(authenticationService.userData | async)">
         <div class="form-group">
           <label for="email">Email:</label>
@@ -14,6 +15,17 @@
         <button (click)="signIn()" class="btn btn-primary">Login</button>
       </div>
       <button (click)="signOut()" class="btn btn-primary" *ngIf="authenticationService.userData | async">Logout</button>
+      </div>
+      <div class="row">
+        <app-menu-laterale class="col-xs-4"></app-menu-laterale>
+        <div class="col-xs-8">
+          <h1>Nome dell'organizzazione: </h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-8">
+          <p>Totale utenti all'interno: </p>
+        </div>
     </div>
   </div>
 </div>
