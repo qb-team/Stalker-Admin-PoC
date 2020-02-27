@@ -1,11 +1,6 @@
-![](src/assets/icons/qbteam.png)
-
-# LoginStalker
+# UI
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.3.
-
-Login for Server Stalker
-
 
 ## Development server
 

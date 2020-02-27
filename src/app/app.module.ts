@@ -1,37 +1,29 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { environment } from '../environments/environment';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-// App Modules
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserModule } from './user/user.module';
 
-// Firebase imports
+import { FormsModule } from '@angular/forms';
+
 import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import {FormsModule} from '@angular/forms';
+import { environment } from '../environments/environment';
 
-
+/* Auth service */
+import { AuthenticationService } from './services/authentication.service';
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({appId: 'serverApp'}),
-    BrowserAnimationsModule,
-    UserModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule,
+    BrowserModule,
+    AppRoutingModule,
     AngularFireAuthModule,
-    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
-    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(environment.firebase),
     FormsModule
   ],
-  providers: [],
+  providers: [AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
