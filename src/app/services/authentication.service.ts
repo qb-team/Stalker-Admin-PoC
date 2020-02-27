@@ -18,8 +18,7 @@ export class AuthenticationService {
     this.angularFireAuth.auth
       .signInWithEmailAndPassword(email, password)
       .then(res => {
-        console.log('You are Successfully logged in!');
-      })
+        console.log('You are Successfully logged in!');})
       .catch(err => {
         console.log('Something is wrong:', err.message);
       });
@@ -32,4 +31,7 @@ export class AuthenticationService {
       .signOut();
   }
 
+  ResetPassword(email: string) {
+    this.angularFireAuth.auth.sendPasswordResetEmail(email).then(res => {console.log('Check out your email'); } );
+  }
 }

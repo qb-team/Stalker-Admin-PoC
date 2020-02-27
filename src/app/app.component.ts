@@ -6,20 +6,20 @@ import { AuthenticationService } from './services/authentication.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
-  title: 'app';
-  constructor(
-    public authenticationService: AuthenticationService
-  ) {
+  title: 'LoginStalker';
+  visible = false;
+  reset = false;
+
+  constructor(public authenticationService: AuthenticationService) {
   }
 
   email: string;
   password: string;
-  tmp: string;
 
   signIn() {
     this.authenticationService.SignIn(this.email, this.password);
-    this.tmp = this.email;
     this.email = '';
     this.password = '';
   }
@@ -28,8 +28,18 @@ export class AppComponent {
     this.authenticationService.SignOut();
   }
 
-  getEmail() {
-      return this.tmp;
+  CallResetPassword() {
+    this.visible = true;
   }
 
-}
+  Back() {
+    this.visible = false;
+    this.reset = false;
+  }
+
+  resetPassword() {
+    this.reset = true;
+    this.authenticationService.ResetPassword(this.email);
+    this.email = '';
+  }
+ }

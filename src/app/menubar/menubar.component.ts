@@ -14,7 +14,7 @@ export class MenubarComponent implements OnInit {
   constructor(private comp: AppComponent) { }
 
   ngOnInit(): void {
-    this.Email = this.comp.getEmail();
+
   }
 
   CallsignOut1() {

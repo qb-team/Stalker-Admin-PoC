@@ -1,6 +1,7 @@
+<!--Login--------------------------------------------------->
 <div class="container-fluid">
-  <!--Login--------------------------------------------------->
-  <div id="login" class="row" *ngIf="!(authenticationService.userData | async)">
+  <div id="img" class="row" *ngIf="!(authenticationService.userData | async )"></div>
+  <div id="login" class="row" *ngIf="!(authenticationService.userData | async ) && !visible">
     <div class="col-md-6 col-md-offset-3">
       <div class="form-group">
           <label for="email">Email:</label>
@@ -11,10 +12,28 @@
           <input type="password" class="form-control" [(ngModel)]="password" id="pwd" placeholder="password">
         </div>
         <button (click)="signIn()" class="btn btn-primary">Login</button>
+        <button (click)="CallResetPassword()" class="btn btn-primary"> Password dimenticata</button>
     </div>
   </div>
 </div>
-  <!--Login--------------------------------------------------->
+<!--Login--------------------------------------------------->
+
+<!--Reset--------------------------------------------------->
+<div id="reset" class="container-fluid" *ngIf="visible">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="form-group">
+        <label for="email2">Email:</label>
+        <input type="text" id="email2" class="form-control" [(ngModel)]="email" placeholder="email">
+        <p *ngIf="reset"> Controlla la tua email per completare il reset</p>
+      </div>
+      <button (click)="resetPassword()" class="btn btn-primary"> Reset Password </button>
+      <button (click)="Back()" class="btn btn-primary"> Back </button>
+    </div>
+  </div>
+</div>
+<!--Reset--------------------------------------------->
+
 <div class="container-fluid" *ngIf="authenticationService.userData | async" >
 
   <div class="row" >
