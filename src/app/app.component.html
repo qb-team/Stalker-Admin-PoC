@@ -16,18 +16,21 @@
 </div>
   <!--Login--------------------------------------------------->
 <div class="container-fluid">
+
   <div class="row" *ngIf="authenticationService.userData | async" >
     <app-menubar class="col"> </app-menubar>
   </div>
 
   <div class="row">
     <app-menu-functionality class="col-xs-4"></app-menu-functionality>
+    <app-content class="col-xs-8 offset-xs-4"></app-content>
   </div>
-
+  
+</div>
 <!--<div class="col-xs-2">
   <h1 *ngIf="authenticationService && authenticationService.userData | async"> Benvenuto
     {{ (authenticationService.userData | async)?.email }} !</h1>
   <h1 class="move">Nome dell'organizzazione: </h1>
   <p class="move" >Totale utenti all'interno: </p>
 </div>-->
-</div>
+
