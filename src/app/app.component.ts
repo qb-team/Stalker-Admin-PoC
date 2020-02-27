@@ -7,7 +7,7 @@ import { AuthenticationService } from './services/authentication.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title: "app";
+  title: 'app';
   constructor(
     public authenticationService: AuthenticationService
   ) {
@@ -15,15 +15,21 @@ export class AppComponent {
 
   email: string;
   password: string;
+  tmp: string;
 
   signIn() {
     this.authenticationService.SignIn(this.email, this.password);
+    this.tmp = this.email;
     this.email = '';
     this.password = '';
   }
 
   signOut() {
     this.authenticationService.SignOut();
+  }
+
+  getEmail() {
+      return this.tmp;
   }
 
 }

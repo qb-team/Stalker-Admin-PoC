@@ -1,10 +1,8 @@
 <div class="container-fluid">
-  <div class="row">
+  <!--Login--------------------------------------------------->
+  <div class="row" *ngIf="!(authenticationService.userData | async)">
     <div class="col-md-6 col-md-offset-3">
-      <h1 *ngIf="authenticationService && authenticationService.userData | async"> Benvenuto
-        {{ (authenticationService.userData | async)?.email }} !</h1>
-      <div *ngIf="!(authenticationService.userData | async)">
-        <div class="form-group">
+      <div class="form-group">
           <label for="email">Email:</label>
           <input type="text" id="email" class="form-control" [(ngModel)]="email" placeholder="email">
         </div>
@@ -13,17 +11,23 @@
           <input type="password" class="form-control" [(ngModel)]="password" id="pwd" placeholder="password">
         </div>
         <button (click)="signIn()" class="btn btn-primary">Login</button>
-      </div>
-      <button (click)="signOut()" class="btn btn-primary" *ngIf="authenticationService.userData | async">Logout</button>
-      </div>
-
-  </div>
-  <div class="row">
-    <app-menu-functionality class="col-xs-4"></app-menu-functionality>
-    <div class="col-xs-2">
-      <h1 class="move">Nome dell'organizzazione: </h1>
-      <p class="move" >Totale utenti all'interno: </p>
     </div>
   </div>
+</div>
+  <!--Login--------------------------------------------------->
+<div class="container-fluid">
+  <div class="row" *ngIf="authenticationService.userData | async" >
+    <app-menubar class="col"> </app-menubar>
+  </div>
 
+  <div class="row">
+    <app-menu-functionality class="col-xs-4"></app-menu-functionality>
+  </div>
+
+<!--<div class="col-xs-2">
+  <h1 *ngIf="authenticationService && authenticationService.userData | async"> Benvenuto
+    {{ (authenticationService.userData | async)?.email }} !</h1>
+  <h1 class="move">Nome dell'organizzazione: </h1>
+  <p class="move" >Totale utenti all'interno: </p>
+</div>-->
 </div>

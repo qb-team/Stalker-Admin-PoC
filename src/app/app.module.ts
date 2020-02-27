@@ -13,10 +13,13 @@ import { environment } from '../environments/environment';
 /* Auth service */
 import { AuthenticationService } from './services/authentication.service';
 import { MenuFunctionalityComponent } from './menu-funzionalita/menu-functionality.component';
+import { MenubarComponent } from './menubar/menubar.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     MenuFunctionalityComponent,
+    MenubarComponent,
   ],
   imports: [
     BrowserModule,

@@ -8,3 +8,10 @@
 p.move{
   margin-left: 2.5em;
 }
+
+h1{
+  font-size: 1em
+}
+.col{
+  padding: 0;
+}
