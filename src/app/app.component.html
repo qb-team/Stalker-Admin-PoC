@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <h1 *ngIf="authenticationService && authenticationService.userData | async"> Benvenuto
@@ -16,16 +16,14 @@
       </div>
       <button (click)="signOut()" class="btn btn-primary" *ngIf="authenticationService.userData | async">Logout</button>
       </div>
-      <div class="row">
-        <app-menu-laterale class="col-xs-4"></app-menu-laterale>
-        <div class="col-xs-8">
-          <h1>Nome dell'organizzazione: </h1>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-8">
-          <p>Totale utenti all'interno: </p>
-        </div>
+
+  </div>
+  <div class="row">
+    <app-menu-functionality class="col-xs-4"></app-menu-functionality>
+    <div class="col-xs-2">
+      <h1 class="move">Nome dell'organizzazione: </h1>
+      <p class="move" >Totale utenti all'interno: </p>
     </div>
   </div>
+
 </div>

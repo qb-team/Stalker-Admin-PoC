@@ -1,3 +1,10 @@
-div{
+/*div{
     display: block;
+}*/
+.move{
+  margin-left: 1em;
+}
+
+p.move{
+  margin-left: 2.5em;
 }

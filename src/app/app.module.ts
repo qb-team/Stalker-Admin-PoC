@@ -12,11 +12,11 @@ import { environment } from '../environments/environment';
 
 /* Auth service */
 import { AuthenticationService } from './services/authentication.service';
-import { MenuLateraleComponent } from './menu-laterale/menu-laterale.component';
+import { MenuFunctionalityComponent } from './menu-funzionalita/menu-functionality.component';
 @NgModule({
   declarations: [
     AppComponent,
-    MenuLateraleComponent,
+    MenuFunctionalityComponent,
   ],
   imports: [
     BrowserModule,
