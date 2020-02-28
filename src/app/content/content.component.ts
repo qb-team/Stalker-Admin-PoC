@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
-import { Organization } from '../organization.model';
 
 @Component({
   selector: 'app-content',

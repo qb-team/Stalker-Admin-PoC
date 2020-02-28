@@ -1,5 +1,4 @@
 import { Component, OnInit, DoCheck, Input } from '@angular/core';
-import { Organization } from 'src/app/organization.model';
 
 
 @Component({
