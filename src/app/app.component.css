@@ -17,8 +17,6 @@ h1{
 }
 
 #login, #reset{
-  position: relative;
-  left: 26%;
   margin-top: 1em;
   text-align: center;
 }

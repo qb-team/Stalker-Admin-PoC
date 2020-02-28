@@ -16,6 +16,7 @@ import { MenuFunctionalityComponent } from './menu-funzionalita/menu-functionali
 import { MenubarComponent } from './menubar/menubar.component';
 import { ContentComponent } from './content/content.component';
 import { ContentTrackUsersComponent } from './content/content-track-users/content-track-users.component';
+import { DataService } from './services/data.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { ContentTrackUsersComponent } from './content/content-track-users/conten
     AngularFireModule.initializeApp(environment.firebase),
     FormsModule
   ],
-  providers: [AuthenticationService],
+  providers: [AuthenticationService, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

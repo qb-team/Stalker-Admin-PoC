@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../services/data.service';
+import { Organization } from '../organization.model';
 
 @Component({
   selector: 'app-content',
@@ -6,15 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./content.component.css']
 })
 export class ContentComponent implements OnInit {
-  constructor() { }
+  organization: string;
 
-  ngOnInit(): void {
-  }
+  constructor( private ds: DataService ) { }
 
-  getOrganization(event: {organization: string})
-  {
-    console.log('getOrganization(event) component.ts');
-    return event.organization;
+  ngOnInit() {
+    this.ds.org.subscribe((org : string) => { this.organization = org; });
   }
+  
 
 }

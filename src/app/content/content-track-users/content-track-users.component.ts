@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck, Input } from '@angular/core';
+import { Organization } from 'src/app/organization.model';
+
 
 @Component({
   selector: 'app-content-track-users',
@@ -8,10 +10,11 @@ import { Component, OnInit } from '@angular/core';
 export class ContentTrackUsersComponent implements OnInit {
 
   focused = true;
-  organization;
+  @Input() org : string;
   presentUsersOrg;
   constructor() {
     this.presentUsersOrg = this.getUsers();
+    console.log('Costruttore()');
   }
 
   getUsers() {
@@ -20,6 +23,9 @@ export class ContentTrackUsersComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
   }
+
+
 
 }

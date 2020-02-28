@@ -1,6 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { AppComponent } from '../app.component';
-import {Observable} from 'rxjs';
+import { DataService } from '../services/data.service';
+import { Organization } from '../organization.model';
+
 
 @Component({
   providers: [ AppComponent ],
@@ -9,29 +11,20 @@ import {Observable} from 'rxjs';
   styleUrls: ['./menubar.component.css']
 })
 export class MenubarComponent implements OnInit {
-  @Output() selected_organization = new EventEmitter<string>();
-  Email: string;
   organization: string;
-  constructor(private comp: AppComponent) { }
+  constructor(private comp: AppComponent, private ds: DataService) { console.log("Costruttore di menubar"); }
 
   ngOnInit(): void {
 
   }
 
-  setOrg(event)
+  setOrg(click: any)
   {
-    this.organization = event.target.value;
-    console.log('setOrg(event)');
-    this.selectedOrganization();
+    this.organization = click.target.innerHTML;
+    this.ds.org.emit(this.organization);
   }
 
-  selectedOrganization()
-  {
-    this.selected_organization.emit(this.organization);
-    console.log('selectedOrganization()');
-  }
-
-  CallsignOut1() {
+  CallSignOut() {
     this.comp.signOut();
   }
 }
