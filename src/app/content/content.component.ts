@@ -13,6 +13,7 @@ export class ContentComponent implements OnInit {
 
   getOrganization(event: {organization: string})
   {
+    console.log('getOrganization(event) component.ts');
     return event.organization;
   }
 
