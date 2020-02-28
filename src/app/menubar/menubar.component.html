@@ -1,5 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <span class="navbar-brand">Qbteam Organizzazione x <!--{{organizzazione}}--></span>
+  <span id="img"></span>
+  <span class="navbar-brand"> {{organization}} </span>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto" id="oneline">
       <li class="nav-item dropdown">
@@ -7,9 +8,9 @@
           Organizzazione
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Organizzazione 1</a>
-          <a class="dropdown-item" href="#">Organizzazione 2</a>
-          <a class="dropdown-item" href="#">Organizzazione 3</a>
+          <a class="dropdown-item" (click)="setOrg('Organizzazione 1')" href="#">Organizzazione 1</a>
+          <a class="dropdown-item" (click)="setOrg('Organizzazione 2')" href="#">Organizzazione 2</a>
+          <a class="dropdown-item" (click)="setOrg('Organizzazione 3')" href="#">Organizzazione 3</a>
         </div>
       </li>
     </ul>

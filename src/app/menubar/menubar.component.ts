@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../app.component';
-import {Observable} from 'rxjs';
+
 
 @Component({
   providers: [ AppComponent ],
@@ -10,11 +10,15 @@ import {Observable} from 'rxjs';
 })
 export class MenubarComponent implements OnInit {
 
-  Email: string;
+  organization: string;
   constructor(private comp: AppComponent) { }
 
   ngOnInit(): void {
 
+  }
+
+  setOrg(org: string) {
+    this.organization = org;
   }
 
   CallsignOut1() {
