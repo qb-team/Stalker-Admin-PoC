@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { AppComponent } from '../app.component';
 
 
@@ -9,19 +9,22 @@ import { AppComponent } from '../app.component';
   styleUrls: ['./menubar.component.css']
 })
 export class MenubarComponent implements OnInit {
-
+  @Output() nameOrg = new EventEmitter<string>();
   organization: string;
+
   constructor(private comp: AppComponent) { }
 
   ngOnInit(): void {
 
   }
 
-  setOrg(org: string) {
-    this.organization = org;
+  getOrg(click: any) {
+    this.organization = click.target.innerHTML;
+    this.nameOrg.emit(click.target.innerHTML);
   }
 
-  CallsignOut1() {
+
+  CallSignOut() {
     this.comp.signOut();
   }
 }
