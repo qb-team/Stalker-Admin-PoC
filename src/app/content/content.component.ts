@@ -12,8 +12,7 @@ export class ContentComponent implements OnInit {
   constructor( private ds: DataService ) { }
 
   ngOnInit() {
-    this.ds.org.subscribe((org : string) => { this.organization = org; });
+    this.ds.org.subscribe((org: string) => { this.organization = org; });
   }
-  
 
 }

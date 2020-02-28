@@ -9,7 +9,7 @@ import { Component, OnInit, DoCheck, Input } from '@angular/core';
 export class ContentTrackUsersComponent implements OnInit {
 
   focused = true;
-  @Input() org : string;
+  @Input() org: string;
   presentUsersOrg;
   constructor() {
     this.presentUsersOrg = this.getUsers();

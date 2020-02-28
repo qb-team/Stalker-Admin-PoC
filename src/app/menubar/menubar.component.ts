@@ -1,30 +1,29 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { AppComponent } from '../app.component';
+import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
-import { Organization } from '../organization.model';
-
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
-  providers: [ AppComponent ],
   selector: 'app-menubar',
   templateUrl: './menubar.component.html',
   styleUrls: ['./menubar.component.css']
 })
 export class MenubarComponent implements OnInit {
   organization: string;
-  constructor(private comp: AppComponent, private ds: DataService) { console.log("Costruttore di menubar"); }
+  constructor(private ds: DataService, private authenticationService: AuthenticationService) { console.log('Costruttore di menubar'); }
 
   ngOnInit(): void {
 
   }
 
-  setOrg(click: any)
-  {
+  setOrg(click: any) {
     this.organization = click.target.innerHTML;
     this.ds.org.emit(this.organization);
   }
 
-  CallSignOut() {
+  /*CallSignOut() {
     this.comp.signOut();
+  }*/
+  SignOut() {
+    this.authenticationService.SignOut();
   }
 }

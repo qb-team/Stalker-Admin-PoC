@@ -7,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuFunctionalityComponent implements OnInit {
 
-  index: 10;
   constructor() { }
 
   ngOnInit(): void {

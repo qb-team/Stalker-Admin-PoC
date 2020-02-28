@@ -1,6 +1,6 @@
 import { EventEmitter } from '@angular/core';
 
-export class DataService{
+export class DataService {
     /*private organization: string;
 
     getOrganization()

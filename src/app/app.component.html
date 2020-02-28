@@ -1,7 +1,7 @@
 <!--Login--------------------------------------------------->
 <div class="container-fluid">
-  <div id="img" class="row" *ngIf="!(authenticationService.userData | async )"></div>
-  <div id="login" class="row" *ngIf="!(authenticationService.userData | async ) && !visible">
+  <div id="img" class="row" *ngIf="!(getAuth().userData | async )"></div>
+  <div id="login" class="row" *ngIf="!(getAuth().userData | async ) && !visible">
     <div class="col-md-6 offset-md-3">
       <div class="form-group">
           <label for="email">Email:</label>
@@ -34,8 +34,7 @@
 </div>
 <!--Reset--------------------------------------------->
 
-<div class="container-fluid" *ngIf="authenticationService.userData | async" >
-
+<div class="container-fluid" *ngIf="getAuth().userData | async" >
   <div class="row" >
     <app-menubar class="col"> </app-menubar>
   </div>

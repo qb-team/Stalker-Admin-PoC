@@ -14,7 +14,7 @@ export class AppComponent {
   visible = false;
   reset = false;
 
-  constructor(public authenticationService: AuthenticationService) {
+  constructor(private authenticationService: AuthenticationService) {
   }
 
   email: string;
@@ -24,10 +24,6 @@ export class AppComponent {
     this.authenticationService.SignIn(this.email, this.password);
     this.email = '';
     this.password = '';
-  }
-
-  signOut() {
-    this.authenticationService.SignOut();
   }
 
   CallResetPassword() {
@@ -43,5 +39,9 @@ export class AppComponent {
     this.reset = true;
     this.authenticationService.ResetPassword(this.email);
     this.email = '';
+  }
+
+  getAuth() {
+    return this.authenticationService;
   }
  }
