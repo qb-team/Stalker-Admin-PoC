@@ -17,6 +17,8 @@ import { MenubarComponent } from './menubar/menubar.component';
 import { ContentComponent } from './content/content.component';
 import { ContentTrackUsersComponent } from './content/content-track-users/content-track-users.component';
 import { DataService } from './services/data.service';
+import { LoginComponent } from './login/login.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { DataService } from './services/data.service';
     MenuFunctionalityComponent,
     MenubarComponent,
     ContentComponent,
-    ContentTrackUsersComponent
+    ContentTrackUsersComponent,
+    LoginComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,

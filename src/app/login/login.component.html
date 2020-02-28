@@ -1,0 +1,17 @@
+<div class="container-fluid">
+  <div id="img" class="row" *ngIf="!(getAuth().userData | async )"></div>
+  <div id="login" class="row" *ngIf="!(getAuth().userData | async ) && !getVisible()">
+    <div class="col-md-6 offset-md-3">
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" class="form-control" required="required" [(ngModel)]="email" placeholder="email">
+      </div>
+      <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" [(ngModel)]="password" required="required" id="pwd" placeholder="password">
+      </div>
+      <button (click)="signIn()" class="btn btn-primary">Login</button>
+      <button (click)="CallResetPassword()" class="btn btn-primary"> Password dimenticata</button>
+    </div>
+  </div>
+</div>
