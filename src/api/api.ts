@@ -1,11 +1,11 @@
-export * from './movement.service';
-import { MovementService } from './movement.service';
+export * from './access.service';
+import { AccessService } from './access.service';
+export * from './adminAuthentication.service';
+import { AdminAuthenticationService } from './adminAuthentication.service';
 export * from './organization.service';
 import { OrganizationService } from './organization.service';
-export * from './place.service';
-import { PlaceService } from './place.service';
 export * from './tracking.service';
 import { TrackingService } from './tracking.service';
 export * from './userAuthentication.service';
 import { UserAuthenticationService } from './userAuthentication.service';
-export const APIS = [MovementService, OrganizationService, PlaceService, TrackingService, UserAuthenticationService];
+export const APIS = [AccessService, AdminAuthenticationService, OrganizationService, TrackingService, UserAuthenticationService];

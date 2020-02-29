@@ -17,8 +17,8 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
-import { AuthResponseUser } from '../model/models';
-import { AuthenticationDataUser } from '../model/models';
+import { AuthResponseAdmin } from '../model/models';
+import { AuthenticationDataAdmin } from '../model/models';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -28,7 +28,7 @@ import { Configuration }                                     from '../configurat
 @Injectable({
   providedIn: 'root'
 })
-export class UserAuthenticationService {
+export class AdminAuthenticationService {
 
     protected basePath = 'http://localhost:8080';
     public defaultHeaders = new HttpHeaders();
@@ -83,16 +83,16 @@ export class UserAuthenticationService {
     }
 
     /**
-     * Lets the user login via the authentication service.
-     * Lets the user login via the authentication service.
-     * @param authenticationDataUser 
+     * Lets the admin login via the authentication service.
+     * Lets the admin login via the authentication service.
+     * @param authenticationDataAdmin 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public userLogin(authenticationDataUser?: AuthenticationDataUser, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<AuthResponseUser>;
-    public userLogin(authenticationDataUser?: AuthenticationDataUser, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<AuthResponseUser>>;
-    public userLogin(authenticationDataUser?: AuthenticationDataUser, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<AuthResponseUser>>;
-    public userLogin(authenticationDataUser?: AuthenticationDataUser, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public adminLogin(authenticationDataAdmin?: AuthenticationDataAdmin, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<AuthResponseAdmin>;
+    public adminLogin(authenticationDataAdmin?: AuthenticationDataAdmin, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<AuthResponseAdmin>>;
+    public adminLogin(authenticationDataAdmin?: AuthenticationDataAdmin, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<AuthResponseAdmin>>;
+    public adminLogin(authenticationDataAdmin?: AuthenticationDataAdmin, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
 
         let headers = this.defaultHeaders;
 
@@ -123,8 +123,8 @@ export class UserAuthenticationService {
             responseType = 'text';
         }
 
-        return this.httpClient.post<AuthResponseUser>(`${this.configuration.basePath}/authentication/userLogin`,
-            authenticationDataUser,
+        return this.httpClient.post<AuthResponseAdmin>(`${this.configuration.basePath}/authentication/adminLogin`,
+            authenticationDataAdmin,
             {
                 responseType: <any>responseType,
                 withCredentials: this.configuration.withCredentials,
@@ -136,15 +136,15 @@ export class UserAuthenticationService {
     }
 
     /**
-     * Lets the user logout from the system.
-     * Lets the user logout from the system.
+     * Lets the admin logout from the system.
+     * Lets the admin logout from the system.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public userLogout(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<any>;
-    public userLogout(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpResponse<any>>;
-    public userLogout(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpEvent<any>>;
-    public userLogout(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined}): Observable<any> {
+    public adminLogout(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<any>;
+    public adminLogout(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpResponse<any>>;
+    public adminLogout(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpEvent<any>>;
+    public adminLogout(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined}): Observable<any> {
 
         let headers = this.defaultHeaders;
 
@@ -165,61 +165,8 @@ export class UserAuthenticationService {
             responseType = 'text';
         }
 
-        return this.httpClient.post<any>(`${this.configuration.basePath}/authentication/userLogout`,
+        return this.httpClient.post<any>(`${this.configuration.basePath}/authentication/adminLogout`,
             null,
-            {
-                responseType: <any>responseType,
-                withCredentials: this.configuration.withCredentials,
-                headers: headers,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * Lets the user registrate into the system.
-     * Lets the user registrate into the system.
-     * @param authenticationDataUser 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public userRegistration(authenticationDataUser?: AuthenticationDataUser, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<AuthResponseUser>;
-    public userRegistration(authenticationDataUser?: AuthenticationDataUser, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<AuthResponseUser>>;
-    public userRegistration(authenticationDataUser?: AuthenticationDataUser, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<AuthResponseUser>>;
-    public userRegistration(authenticationDataUser?: AuthenticationDataUser, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
-
-        let headers = this.defaultHeaders;
-
-        let httpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
-        if (httpHeaderAcceptSelected === undefined) {
-            // to determine the Accept header
-            const httpHeaderAccepts: string[] = [
-                'application/json'
-            ];
-            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        }
-        if (httpHeaderAcceptSelected !== undefined) {
-            headers = headers.set('Accept', httpHeaderAcceptSelected);
-        }
-
-
-        // to determine the Content-Type header
-        const consumes: string[] = [
-            'application/json'
-        ];
-        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
-        if (httpContentTypeSelected !== undefined) {
-            headers = headers.set('Content-Type', httpContentTypeSelected);
-        }
-
-        let responseType: 'text' | 'json' = 'json';
-        if(httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
-            responseType = 'text';
-        }
-
-        return this.httpClient.post<AuthResponseUser>(`${this.configuration.basePath}/authentication/userRegistration`,
-            authenticationDataUser,
             {
                 responseType: <any>responseType,
                 withCredentials: this.configuration.withCredentials,

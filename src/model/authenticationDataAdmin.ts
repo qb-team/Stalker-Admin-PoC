@@ -9,17 +9,13 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { Access } from './access';
 
 
 /**
- * Access to an organization made with the authenticated trackingMode.
+ * Data given to the admin when authenticated.
  */
-export interface OrganizationAnonymousAccess { 
-    access: Access;
-    /**
-     * Unique identifier of the organization in which the user had access.
-     */
-    organizationId: number;
+export interface AuthenticationDataAdmin { 
+    token: string;
+    expirationDate: Date;
 }
 
