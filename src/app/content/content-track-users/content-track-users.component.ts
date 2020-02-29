@@ -13,7 +13,6 @@ export class ContentTrackUsersComponent implements OnInit {
   presentUsersOrg;
   constructor() {
     this.presentUsersOrg = this.getUsers();
-    console.log('Costruttore()');
   }
 
   getUsers() {

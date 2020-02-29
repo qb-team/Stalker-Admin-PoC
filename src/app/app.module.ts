@@ -24,9 +24,9 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
   declarations: [
     AppComponent,
     MenuFunctionalityComponent,
-    MenubarComponent,
     ContentComponent,
     ContentTrackUsersComponent,
+    MenubarComponent,
     LoginComponent,
     ResetPasswordComponent
   ],
