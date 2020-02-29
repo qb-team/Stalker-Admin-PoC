@@ -1,20 +1,18 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <span id="img"></span>
   <span class="navbar-brand"> {{organization}} </span>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto" id="oneline">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Organizzazione
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a id="first_org" class="dropdown-item" (click)="setOrg($event)" href="#">Organizzazione 1</a>
-          <a class="dropdown-item" (click)="setOrg($event)" href="#">Organizzazione 2</a>
-          <a class="dropdown-item" (click)="setOrg($event)" href="#">Organizzazione 3</a>
-        </div>
-      </li>
-    </ul>
-  </div>
+  <ul class="navbar-nav mr-auto" id="oneline">
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Organizzazione
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a id="first_org" class="dropdown-item" (click)="setOrg($event)" href="#">Organizzazione 1</a>
+        <a class="dropdown-item" (click)="setOrg($event)" href="#">Organizzazione 2</a>
+        <a class="dropdown-item" (click)="setOrg($event)" href="#">Organizzazione 3</a>
+      </div>
+    </li>
+  </ul>
   <form class="form-inline my-2 my-lg-0">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="SignOut()">Logout</button>
   </form>

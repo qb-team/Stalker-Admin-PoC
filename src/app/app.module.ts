@@ -19,6 +19,7 @@ import { ContentTrackUsersComponent } from './content/content-track-users/conten
 import { DataService } from './services/data.service';
 import { LoginComponent } from './login/login.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     ContentTrackUsersComponent,
     MenubarComponent,
     LoginComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

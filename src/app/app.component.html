@@ -8,14 +8,15 @@
 
 <div class="container-fluid" *ngIf="getAuth().userData | async" >
   <div class="row" >
-    <app-menubar class="col"> </app-menubar>
+    <app-menubar class="col-md-12 col-xs-12"></app-menubar>
   </div>
 
   <div class="row">
-    <app-menu-functionality class="col-xs-4"></app-menu-functionality>
-    <app-content class="col-xs-8 offset-xs-4"></app-content>
+    <app-menu-functionality class="col-md-3"></app-menu-functionality>
+    <app-content class="col-md-9"></app-content>
   </div>
 </div>
+<app-footer></app-footer>
 <!--<div class="col-xs-2">
   <h1 *ngIf="authenticationService && authenticationService.userData | async"> Benvenuto
     {{ (authenticationService.userData | async)?.email }} !</h1>
