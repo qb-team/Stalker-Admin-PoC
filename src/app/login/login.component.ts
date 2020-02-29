@@ -12,15 +12,25 @@ export class LoginComponent implements OnInit {
   constructor(private authenticationService: AuthenticationService, private data: DataService) { }
   email: string;
   password: string;
+  validate = true;
 
   ngOnInit(): void {
   }
 
   signIn() {
-    this.authenticationService.SignIn(this.email, this.password);
-    this.email = '';
-    this.password = '';
-  }
+    try {
+      this.authenticationService.SignIn(this.email, this.password);
+      if (this.email === '' || this.password === '') {
+        this.validate = false;
+      } else {
+        this.validate = true;
+      }
+      this.email = '';
+      this.password = '';
+    } catch (e) {
+       this.validate = false;
+      }
+    }
 
   CallResetPassword() {
     this.data.visible = true;

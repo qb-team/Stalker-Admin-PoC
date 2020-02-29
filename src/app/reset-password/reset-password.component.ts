@@ -21,10 +21,15 @@ export class ResetPasswordComponent implements OnInit {
     this.reset = false;
   }
 
-  resetPassword() {
-    this.reset = true;
+  resetPassword(click: any) {
     this.authenticationService.ResetPassword(this.email);
     this.email = '';
+    if (click.target.innerHTML === '') {
+      this.reset = false;
+    } else {
+      this.reset = true;
+    }
+    this.authenticationService.signOk = true;
   }
 
   getVisible() {

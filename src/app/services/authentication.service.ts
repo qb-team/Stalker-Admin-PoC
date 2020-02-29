@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 
 export class AuthenticationService {
   userData: Observable<firebase.User>;
+  signOk = true;
 
   constructor(private angularFireAuth: AngularFireAuth) {
     this.userData = angularFireAuth.authState;
@@ -17,10 +18,10 @@ export class AuthenticationService {
   SignIn(email: string, password: string) {
     this.angularFireAuth.auth
       .signInWithEmailAndPassword(email, password)
-      .then(res => {
-        console.log('You are Successfully logged in!'); })
-      .catch(err => {
-        console.log('Something is wrong:', err.message);
+      .then(res => { this.signOk = true;
+                     console.log('You are Successfully logged in!'); })
+      .catch(err => { this.signOk = false;
+                      console.log('Something is wrong:', err.message);
       });
   }
 
