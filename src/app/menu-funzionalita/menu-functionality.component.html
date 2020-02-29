@@ -1,7 +1,7 @@
 <div id="accordion">
     <div class="card">
-        <button (click)="updateContent($event)" class="btn btn-light" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-            aria-controls="collapseOne">Tracciamento</button>
+        <span (click)="updateContent($event)" class="btn btn-light" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+            aria-controls="collapseOne">Tracciamento</span>
 
         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
             <ul class="list-group">
@@ -14,10 +14,10 @@
         </div>
     </div>
     <div class="card">
-        <button (click)="updateContent($event)" class="btn btn-light" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
+        <span (click)="updateContent($event)" class="btn btn-light" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
             aria-controls="collapseTwo">
             Modifica dei parametri dell'organizzazione
-        </button>
+    </span>
 
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
             <ul class="list-group">
@@ -30,10 +30,10 @@
         </div>
     </div>
     <div class="card">
-        <button (click)="updateContent($event)" class="btn btn-light" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false"
+        <span (click)="updateContent($event)" class="btn btn-light" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false"
             aria-controls="collapseThree">
             Gestione amministratori
-        </button>
+    </span>
 
         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
             <ul class="list-group">

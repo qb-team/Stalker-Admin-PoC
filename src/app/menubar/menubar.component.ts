@@ -33,4 +33,9 @@ export class MenubarComponent implements OnInit, AfterContentInit {
   SignOut() {
     this.authenticationService.SignOut();
   }
+
+  homePage()
+  {
+    this.ds.active_content.emit("Home page");
+  }
 }
