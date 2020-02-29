@@ -6,9 +6,10 @@ ul,li{
   min-height: 100%;
 }
 
-.card button{
+.card span{
   display: block;
   margin: 0;
   padding: 1em;
+  padding-top: 1.5em;
   min-height: 5em;
 }
