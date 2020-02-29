@@ -10,5 +10,9 @@
   white-space: nowrap;
   overflow: hidden;
   margin-right: 2.7em;
-  margin-left: 1.9em;
+  margin-left: 9%;
+}
+
+.position{
+  margin-left:25%;
 }
