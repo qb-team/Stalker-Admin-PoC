@@ -21,6 +21,7 @@ import { LoginComponent } from './login/login.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { FooterComponent } from './footer/footer.component';
 import { OrganizationService } from 'src/api/api';
+import { ContentHomeComponent } from './content/content-home/content-home.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { OrganizationService } from 'src/api/api';
     MenubarComponent,
     LoginComponent,
     ResetPasswordComponent,
-    FooterComponent
+    FooterComponent,
+    ContentHomeComponent
   ],
   imports: [
     BrowserModule,
