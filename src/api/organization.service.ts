@@ -20,8 +20,7 @@ import { Observable }                                        from 'rxjs';
 import { Organization } from '../model/organization';
 import { OrganizationAuthenticatedAccess } from '../model/organizationAuthenticatedAccess';
 
-import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
-import { Configuration }                                     from '../configuration';
+
 
 
 @Injectable()
@@ -58,7 +57,7 @@ export class OrganizationService {
 
     /**
      * create a new organization
-     * 
+     *
      * @param body Organization that need to be added to the database
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -189,7 +188,7 @@ export class OrganizationService {
 
     /**
      * update the information of an existing organization
-     * 
+     *
      * @param body Organization that need to be added to the database
      * @param organizationId ID of an organization
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.

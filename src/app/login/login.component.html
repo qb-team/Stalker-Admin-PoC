@@ -10,8 +10,8 @@
       </div>
       <p *ngIf="!getAuth().signOk"> Email o/e password errati </p>
       <p *ngIf="!validate"> Email o/e password mancanti</p>
-      <button (click)="signIn()" class="btn btn-primary">Login</button>
-      <button (click)="CallResetPassword()" class="btn btn-primary"> Password dimenticata</button>
+      <button (click)="signIn()" class="btn btn-danger">Login</button>
+      <button (click)="CallResetPassword()" class="btn btn-danger"> Password dimenticata</button>
     </div>
   </div>
 </div>
