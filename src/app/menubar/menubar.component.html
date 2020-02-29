@@ -6,11 +6,12 @@
       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Organizzazione
       </a>
-      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a id="first_org" class="dropdown-item" (click)="setOrg($event)" href="#">Organizzazione 1</a>
-        <a class="dropdown-item" (click)="setOrg($event)" href="#">Organizzazione 2</a>
-        <a class="dropdown-item" (click)="setOrg($event)" href="#">Organizzazione 3</a>
-      </div>
+      <ul class="dropdown-menu" aria-labelledby="navbarDropdown"><!--*ngFor="let org of organizations; index as i"-->
+        <!--<li class="dropdown-item" (click)="setOrg($event)">{{org[i]}}</li>-->   <!--id="first_org"-->
+        <li id="first_org" class="dropdown-item" (click)="setOrg($event)" href="#">Organizzazione 1</li><!--TEMP-->
+        <li class="dropdown-item" (click)="setOrg($event)" href="#">Organizzazione 2</li><!--TEMP-->
+        <li class="dropdown-item" (click)="setOrg($event)" href="#">Organizzazione 3</li><!--TEMP-->
+      </ul>
     </li>
   </ul>
   <form class="form-inline my-2 my-lg-0">

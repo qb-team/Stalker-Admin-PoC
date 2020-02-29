@@ -1,7 +1,14 @@
 ul,li{
   border-radius: 0px;
-  background-color: #f8f9fa;
+  background-color: white;
 }
 .menu-box{
   min-height: 100%;
+}
+
+.card button{
+  display: block;
+  margin: 0;
+  padding: 1em;
+  min-height: 5em;
 }

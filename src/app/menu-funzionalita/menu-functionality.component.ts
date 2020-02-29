@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-menu-functionality',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuFunctionalityComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ds: DataService) { }
 
   ngOnInit(): void {
   }
 
+  updateContent(click: any)
+  {
+    this.ds.active_content.emit(click.target.innerHTML);
+  }
 }

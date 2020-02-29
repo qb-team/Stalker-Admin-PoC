@@ -1,4 +1,7 @@
 import { Component, OnInit, DoCheck, Input } from '@angular/core';
+import { OrganizationService } from '../../../api/api';
+import { Organization } from 'src/model/models';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -8,10 +11,12 @@ import { Component, OnInit, DoCheck, Input } from '@angular/core';
 })
 export class ContentTrackUsersComponent implements OnInit {
 
-  focused = true;
   @Input() org: string;
   presentUsersOrg;
-  constructor() {
+  ob: Observable<Organization>;
+  json_coordinates: string;
+  coordinates;
+  constructor( /*private os: OrganizationService*/ ) {
     this.presentUsersOrg = this.getUsers();
   }
 
@@ -21,7 +26,11 @@ export class ContentTrackUsersComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    //this.ob = this.os.getOrganization(0);
+    //this.ob.subscribe((org: Organization) => {
+      //json_coordinates = org.trackingArea;
+      //this.coordinates = JSON.parse(this.json_coordinates);
+    //})
   }
 
 

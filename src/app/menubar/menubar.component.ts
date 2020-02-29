@@ -1,6 +1,9 @@
 import { Component, OnInit, AfterContentInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { AuthenticationService } from '../services/authentication.service';
+import { OrganizationService } from 'src/api/api';
+import { Observable } from 'rxjs';
+import { Organization } from 'src/model/models';
 
 @Component({
   selector: 'app-menubar',
@@ -9,10 +12,13 @@ import { AuthenticationService } from '../services/authentication.service';
 })
 export class MenubarComponent implements OnInit, AfterContentInit {
   organization: string;
-  constructor(private ds: DataService, private authenticationService: AuthenticationService) {  }
+  orgArr: Array<Organization>;
+  constructor(private ds: DataService, private authenticationService: AuthenticationService, /*private os: OrganizationService*/) {  }
 
   ngOnInit() {
-    this.organization = document.getElementById('first_org').innerHTML;
+    //this.orgArr = this.os.getOrganizations();
+    //this.organization = this.orgArr[0];
+    this.organization = document.getElementById('first_org').innerHTML; //è deprecato
   }
 
   ngAfterContentInit(){

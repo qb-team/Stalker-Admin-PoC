@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 import { Address } from './address';
-import { ModelObject } from './modelObject';
 
 /**
  * Subject interested in tracking people's presence inside its own places, in either an anonymous or authenticated way.
@@ -37,11 +36,11 @@ export interface Organization {
      * URL or IP address of the LDAP server of the organization. If it's required a specific TCP port (different from LDAP's default) it must be specified. Needed only if trackingMethod is set to authenticated.
      */
     serverLDAP?: string;
-    creationDate: string;
+    creationDate: Date;
     /**
      * When the organization was added to the system.
      */
-    modifyDate: ModelObject;
+    modifyDate: Date;
     /**
      * When the organization parameters were last changed.
      */

@@ -20,6 +20,7 @@ import { DataService } from './services/data.service';
 import { LoginComponent } from './login/login.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { FooterComponent } from './footer/footer.component';
+import { OrganizationService } from 'src/api/api';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { FooterComponent } from './footer/footer.component';
     AngularFireModule.initializeApp(environment.firebase),
     FormsModule
   ],
-  providers: [AuthenticationService, DataService],
+  providers: [AuthenticationService, DataService, OrganizationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
