@@ -13,12 +13,12 @@ import { Organization } from 'src/model/models';
 export class MenubarComponent implements OnInit, AfterContentInit {
   organization: string;
   orgArr: Array<Organization>;
-  constructor(private ds: DataService, private authenticationService: AuthenticationService, /*private os: OrganizationService*/) {  }
+  constructor(private ds: DataService, private authenticationService: AuthenticationService, private os: OrganizationService) {  }
 
   ngOnInit() {
-    //this.orgArr = this.os.getOrganizations();
-    //this.organization = this.orgArr[0];
-    this.organization = document.getElementById('first_org').innerHTML; //è deprecato
+    this.os.getOrganizationList().subscribe((obs: Array<Organization>) => {this.orgArr = obs});
+    this.organization = this.orgArr[0].name;
+    //this.organization = document.getElementById('first_org').innerHTML; //è deprecato
   }
 
   ngAfterContentInit(){
