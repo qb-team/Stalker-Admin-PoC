@@ -8,6 +8,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
+import { HttpClientModule } from '@angular/common/http'; 
 
 /* service */
 import { AuthenticationService } from './services/authentication.service';
@@ -42,6 +43,7 @@ import { ContentHomeComponent } from './content/content-home/content-home.compon
   imports: [
     BrowserModule,
     AngularFireAuthModule,
+    HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     FormsModule,
     ReactiveFormsModule
