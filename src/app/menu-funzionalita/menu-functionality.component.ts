@@ -1,3 +1,6 @@
+/*
+* A side-menu that offers all the functionalities available for the administrator on the current organization
+*/
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 
@@ -13,6 +16,9 @@ export class MenuFunctionalityComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /*
+  * Subscribes to the service 'DataService' to retrive the actual specific-component to be showed
+  */
   updateContent(click: any)
   {
     this.ds.active_content.emit(click.target.innerHTML);
