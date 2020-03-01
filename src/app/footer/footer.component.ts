@@ -1,3 +1,6 @@
+/*
+* The footer of the admin interface
+*/
 import { Component, OnInit } from '@angular/core';
 
 @Component({

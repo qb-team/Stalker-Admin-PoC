@@ -1,3 +1,6 @@
+/*
+* Shows minimal informations about the interface usage
+*/
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
