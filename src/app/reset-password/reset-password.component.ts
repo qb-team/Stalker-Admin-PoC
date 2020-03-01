@@ -1,3 +1,6 @@
+/*
+* Component for reset password
+ */
 import { Component, OnInit } from '@angular/core';
 import {AuthenticationService} from '../services/authentication.service';
 import {DataService} from '../services/data.service';
@@ -10,17 +13,23 @@ import {DataService} from '../services/data.service';
 export class ResetPasswordComponent implements OnInit {
 
   constructor(private authenticationService: AuthenticationService, private data: DataService) { }
-  reset = false;
-  email: string;
+  reset = false; // for show page of reset password
+  email: string; // email for reset
 
   ngOnInit(): void {
   }
 
+  /*
+  * Back in login page
+   */
   Back() {
     this.data.visible = false;
     this.reset = false;
   }
 
+  /*
+  * It calls function ResetPassword of the service and updates status
+  */
   resetPassword(click: any) {
     this.authenticationService.ResetPassword(this.email);
     this.email = '';
@@ -32,6 +41,9 @@ export class ResetPasswordComponent implements OnInit {
     this.authenticationService.signOk = true;
   }
 
+  /*
+   * It sets visibility of login page
+   */
   getVisible() {
     return this.data.visible;
   }

@@ -1,27 +1,32 @@
+/*
+ * Container of all components
+ */
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 
-/* Auth service */
+/* service */
 import { AuthenticationService } from './services/authentication.service';
+import { OrganizationService } from 'src/api/api';
+import { DataService } from './services/data.service';
+
+import { AppComponent } from './app.component';
+
+/* child component */
 import { MenuFunctionalityComponent } from './menu-funzionalita/menu-functionality.component';
 import { MenubarComponent } from './menubar/menubar.component';
 import { ContentComponent } from './content/content.component';
 import { ContentTrackUsersComponent } from './content/content-track-users/content-track-users.component';
-import { DataService } from './services/data.service';
 import { LoginComponent } from './login/login.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { FooterComponent } from './footer/footer.component';
-import { OrganizationService } from 'src/api/api';
 import { ContentHomeComponent } from './content/content-home/content-home.component';
+import { AppRoutingModule } from './app-routing.module'; // for future use
+
 
 @NgModule({
   declarations: [

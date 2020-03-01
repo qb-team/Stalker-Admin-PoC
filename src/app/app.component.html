@@ -4,8 +4,9 @@
 
 <!--Reset--------------------------------------------------->
 <app-reset-password></app-reset-password>
-<!--Reset--------------------------------------------->
+<!--Reset--------------------------------------------------->
 
+<!--Panel control------------------------------------------->
 <div class="container-fluid" *ngIf="getAuth().userData | async" >
   <div class="row" >
     <app-menubar class="col-md-12 col-xs-12"></app-menubar>
@@ -17,10 +18,4 @@
   </div>
 </div>
 <app-footer></app-footer>
-<!--<div class="col-xs-2">
-  <h1 *ngIf="authenticationService && authenticationService.userData | async"> Benvenuto
-    {{ (authenticationService.userData | async)?.email }} !</h1>
-  <h1 class="move">Nome dell'organizzazione: </h1>
-  <p class="move" >Totale utenti all'interno: </p>
-</div>-->
-
+<!--Panel control------------------------------------------->

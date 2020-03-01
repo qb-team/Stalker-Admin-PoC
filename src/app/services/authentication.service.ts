@@ -1,3 +1,6 @@
+/*
+ * Service for authentication
+*/
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Observable } from 'rxjs';
@@ -7,14 +10,16 @@ import { Observable } from 'rxjs';
 })
 
 export class AuthenticationService {
-  userData: Observable<firebase.User>;
-  signOk = true;
+  userData: Observable<firebase.User>; // user data
+  signOk = true; // Indicates whether the login was successful
 
   constructor(private angularFireAuth: AngularFireAuth) {
     this.userData = angularFireAuth.authState;
   }
 
-  /* Sign in */
+  /*
+  * Sign in. It allows you to authenticate the user, otherwise it reports an error
+  */
   SignIn(email: string, password: string) {
     this.angularFireAuth.auth
       .signInWithEmailAndPassword(email, password)
@@ -25,13 +30,17 @@ export class AuthenticationService {
       });
   }
 
-  /* Sign out */
+  /*
+   * Sign out. It allows the user to exit
+  */
   SignOut() {
     this.angularFireAuth
       .auth
       .signOut().then(res => {console.log('Good bye'); });
   }
-
+  /*
+   * The function allows to reset password to user
+   */
   ResetPassword(email: string) {
     this.angularFireAuth.auth.sendPasswordResetEmail(email).then(res => {console.log('Check out your email'); } );
   }
