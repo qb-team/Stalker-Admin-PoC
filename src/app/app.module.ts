@@ -17,7 +17,7 @@ import { DataService } from './services/data.service';
 import { AppComponent } from './app.component';
 
 /* child component */
-import { MenuFunctionalityComponent } from './menu-funzionalita/menu-functionality.component';
+import { MenuFunctionalityComponent } from './menu-functionality/menu-functionality.component';
 import { MenubarComponent } from './menubar/menubar.component';
 import { ContentComponent } from './content/content.component';
 import { ContentTrackUsersComponent } from './content/content-track-users/content-track-users.component';
@@ -25,7 +25,6 @@ import { LoginComponent } from './login/login.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { FooterComponent } from './footer/footer.component';
 import { ContentHomeComponent } from './content/content-home/content-home.component';
-import { AppRoutingModule } from './app-routing.module'; // for future use
 
 
 @NgModule({
@@ -42,7 +41,6 @@ import { AppRoutingModule } from './app-routing.module'; // for future use
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase),
     FormsModule,
