@@ -3,9 +3,9 @@
   <span class="btn btn-light navbar-brand position" (click)="homePage()" *ngIf="organization !== undefined"> {{organization.name}} </span>
   <ul class="navbar-nav mr-auto " id="oneline">
     <li class="nav-item dropdown">
-      <p class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
         Organizzazione
-      </p>
+      </a>
       <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
         <li class="dropdown-item" (click)="setOrg($event)" *ngFor="let o of orgArr; index as i" id="{{i}}">{{o.name}}</li>
       </ul>
