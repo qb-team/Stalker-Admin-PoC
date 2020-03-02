@@ -18,7 +18,6 @@ import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
 import { Organization } from '../model/models';
-import { OrganizationAuthenticatedAccess } from '../model/models';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -80,52 +79,6 @@ export class OrganizationService {
             throw Error("key may not be null if value is not object or array");
         }
         return httpParams;
-    }
-
-    /**
-     * Returns all the authenticated accesses in an organization registered.
-     * Returns all the authenticated accesses in an organization registered.
-     * @param organizationId ID of an organization
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public getAccessListInOrganization(organizationId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<Array<OrganizationAuthenticatedAccess>>;
-    public getAccessListInOrganization(organizationId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<Array<OrganizationAuthenticatedAccess>>>;
-    public getAccessListInOrganization(organizationId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<Array<OrganizationAuthenticatedAccess>>>;
-    public getAccessListInOrganization(organizationId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
-        if (organizationId === null || organizationId === undefined) {
-            throw new Error('Required parameter organizationId was null or undefined when calling getAccessListInOrganization.');
-        }
-
-        let headers = this.defaultHeaders;
-
-        let httpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
-        if (httpHeaderAcceptSelected === undefined) {
-            // to determine the Accept header
-            const httpHeaderAccepts: string[] = [
-                'application/json'
-            ];
-            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        }
-        if (httpHeaderAcceptSelected !== undefined) {
-            headers = headers.set('Accept', httpHeaderAcceptSelected);
-        }
-
-
-        let responseType: 'text' | 'json' = 'json';
-        if(httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
-            responseType = 'text';
-        }
-
-        return this.httpClient.get<Array<OrganizationAuthenticatedAccess>>(`${this.configuration.basePath}/access/organization/${encodeURIComponent(String(organizationId))}/authenticated`,
-            {
-                responseType: <any>responseType,
-                withCredentials: this.configuration.withCredentials,
-                headers: headers,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
     }
 
     /**
@@ -220,7 +173,7 @@ export class OrganizationService {
      * Updates one or more properties of a single organization.
      * Updates one or more properties of a single organization.
      * @param organizationId ID of an organization.
-     * @param organization Organization that need to be added to the database
+     * @param organization 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */

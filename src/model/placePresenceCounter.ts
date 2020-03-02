@@ -12,10 +12,16 @@
 
 
 /**
- * Data requested to the admin when authenticating to the system.
+ * Number of people currently inside a place of an organization.
  */
-export interface AuthenticationDataAdmin { 
-    mail: string;
-    password: string;
+export interface PlacePresenceCounter { 
+    /**
+     * Unique identifier of the place.
+     */
+    placeId: number;
+    /**
+     * Number of people currently inside a place of an organization.
+     */
+    counter: number;
 }
 

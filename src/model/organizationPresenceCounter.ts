@@ -12,10 +12,16 @@
 
 
 /**
- * Data requested to the admin when authenticating to the system.
+ * Number of people currently inside the organization\'s trackingArea.
  */
-export interface AuthenticationDataAdmin { 
-    mail: string;
-    password: string;
+export interface OrganizationPresenceCounter { 
+    /**
+     * Unique identifier of the organization.
+     */
+    organizationId: number;
+    /**
+     * Number of people currently inside the organization\'s trackingArea.
+     */
+    counter: number;
 }
 

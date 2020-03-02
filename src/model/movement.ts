@@ -15,6 +15,8 @@
  * Generic movement in an organization or in a place of it.
  */
 export interface Movement { 
+    id: number;
+    movementDiscriminator: string;
     /**
      * Date and time of the moment in which the user entered the place.
      */

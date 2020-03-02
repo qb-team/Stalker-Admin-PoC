@@ -89,10 +89,13 @@ export class AdminAuthenticationService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public adminLogin(authenticationDataAdmin?: AuthenticationDataAdmin, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<AuthResponseAdmin>;
-    public adminLogin(authenticationDataAdmin?: AuthenticationDataAdmin, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<AuthResponseAdmin>>;
-    public adminLogin(authenticationDataAdmin?: AuthenticationDataAdmin, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<AuthResponseAdmin>>;
-    public adminLogin(authenticationDataAdmin?: AuthenticationDataAdmin, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public adminLogin(authenticationDataAdmin: AuthenticationDataAdmin, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<AuthResponseAdmin>;
+    public adminLogin(authenticationDataAdmin: AuthenticationDataAdmin, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<AuthResponseAdmin>>;
+    public adminLogin(authenticationDataAdmin: AuthenticationDataAdmin, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<AuthResponseAdmin>>;
+    public adminLogin(authenticationDataAdmin: AuthenticationDataAdmin, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+        if (authenticationDataAdmin === null || authenticationDataAdmin === undefined) {
+            throw new Error('Required parameter authenticationDataAdmin was null or undefined when calling adminLogin.');
+        }
 
         let headers = this.defaultHeaders;
 

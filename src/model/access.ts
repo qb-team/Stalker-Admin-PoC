@@ -15,6 +15,8 @@
  * Generic access to an organization or a place of it.
  */
 export interface Access { 
+    id: number;
+    accessDiscriminator: string;
     /**
      * Date and time of the moment in which the user entered the place.
      */

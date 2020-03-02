@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { Organization } from 'src/model/models';
-import { Address } from 'src/model/models';
 
 @Component({
   selector: 'app-content-track-users-general-informations',
@@ -13,7 +12,7 @@ export class ContentTrackUsersGeneralInformationsComponent implements OnInit {
   /*
   * The organization currently active
   */
- org: Organization;
+ @Input() org: Organization;
 
   constructor(private ds: DataService) { }
 

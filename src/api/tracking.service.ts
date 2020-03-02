@@ -91,10 +91,13 @@ export class TrackingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public trackAnonymousMovementInOrganization(organizationAnonymousMovement?: OrganizationAnonymousMovement, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<any>;
-    public trackAnonymousMovementInOrganization(organizationAnonymousMovement?: OrganizationAnonymousMovement, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpResponse<any>>;
-    public trackAnonymousMovementInOrganization(organizationAnonymousMovement?: OrganizationAnonymousMovement, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpEvent<any>>;
-    public trackAnonymousMovementInOrganization(organizationAnonymousMovement?: OrganizationAnonymousMovement, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined}): Observable<any> {
+    public trackAnonymousMovementInOrganization(organizationAnonymousMovement: OrganizationAnonymousMovement, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<any>;
+    public trackAnonymousMovementInOrganization(organizationAnonymousMovement: OrganizationAnonymousMovement, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpResponse<any>>;
+    public trackAnonymousMovementInOrganization(organizationAnonymousMovement: OrganizationAnonymousMovement, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpEvent<any>>;
+    public trackAnonymousMovementInOrganization(organizationAnonymousMovement: OrganizationAnonymousMovement, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined}): Observable<any> {
+        if (organizationAnonymousMovement === null || organizationAnonymousMovement === undefined) {
+            throw new Error('Required parameter organizationAnonymousMovement was null or undefined when calling trackAnonymousMovementInOrganization.');
+        }
 
         let headers = this.defaultHeaders;
 
@@ -143,10 +146,13 @@ export class TrackingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public trackAnonymousMovementInPlace(placeAnonymousMovement?: PlaceAnonymousMovement, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<any>;
-    public trackAnonymousMovementInPlace(placeAnonymousMovement?: PlaceAnonymousMovement, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpResponse<any>>;
-    public trackAnonymousMovementInPlace(placeAnonymousMovement?: PlaceAnonymousMovement, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpEvent<any>>;
-    public trackAnonymousMovementInPlace(placeAnonymousMovement?: PlaceAnonymousMovement, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined}): Observable<any> {
+    public trackAnonymousMovementInPlace(placeAnonymousMovement: PlaceAnonymousMovement, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<any>;
+    public trackAnonymousMovementInPlace(placeAnonymousMovement: PlaceAnonymousMovement, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpResponse<any>>;
+    public trackAnonymousMovementInPlace(placeAnonymousMovement: PlaceAnonymousMovement, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpEvent<any>>;
+    public trackAnonymousMovementInPlace(placeAnonymousMovement: PlaceAnonymousMovement, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined}): Observable<any> {
+        if (placeAnonymousMovement === null || placeAnonymousMovement === undefined) {
+            throw new Error('Required parameter placeAnonymousMovement was null or undefined when calling trackAnonymousMovementInPlace.');
+        }
 
         let headers = this.defaultHeaders;
 
@@ -195,10 +201,13 @@ export class TrackingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public trackAuthenticatedMovementInOrganization(organizationAuthenticatedMovement?: OrganizationAuthenticatedMovement, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<any>;
-    public trackAuthenticatedMovementInOrganization(organizationAuthenticatedMovement?: OrganizationAuthenticatedMovement, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpResponse<any>>;
-    public trackAuthenticatedMovementInOrganization(organizationAuthenticatedMovement?: OrganizationAuthenticatedMovement, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpEvent<any>>;
-    public trackAuthenticatedMovementInOrganization(organizationAuthenticatedMovement?: OrganizationAuthenticatedMovement, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined}): Observable<any> {
+    public trackAuthenticatedMovementInOrganization(organizationAuthenticatedMovement: OrganizationAuthenticatedMovement, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<any>;
+    public trackAuthenticatedMovementInOrganization(organizationAuthenticatedMovement: OrganizationAuthenticatedMovement, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpResponse<any>>;
+    public trackAuthenticatedMovementInOrganization(organizationAuthenticatedMovement: OrganizationAuthenticatedMovement, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpEvent<any>>;
+    public trackAuthenticatedMovementInOrganization(organizationAuthenticatedMovement: OrganizationAuthenticatedMovement, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined}): Observable<any> {
+        if (organizationAuthenticatedMovement === null || organizationAuthenticatedMovement === undefined) {
+            throw new Error('Required parameter organizationAuthenticatedMovement was null or undefined when calling trackAuthenticatedMovementInOrganization.');
+        }
 
         let headers = this.defaultHeaders;
 
@@ -247,10 +256,13 @@ export class TrackingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public trackAuthenticatedMovementInPlace(placeAuthenticatedMovement?: PlaceAuthenticatedMovement, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<any>;
-    public trackAuthenticatedMovementInPlace(placeAuthenticatedMovement?: PlaceAuthenticatedMovement, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpResponse<any>>;
-    public trackAuthenticatedMovementInPlace(placeAuthenticatedMovement?: PlaceAuthenticatedMovement, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpEvent<any>>;
-    public trackAuthenticatedMovementInPlace(placeAuthenticatedMovement?: PlaceAuthenticatedMovement, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined}): Observable<any> {
+    public trackAuthenticatedMovementInPlace(placeAuthenticatedMovement: PlaceAuthenticatedMovement, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<any>;
+    public trackAuthenticatedMovementInPlace(placeAuthenticatedMovement: PlaceAuthenticatedMovement, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpResponse<any>>;
+    public trackAuthenticatedMovementInPlace(placeAuthenticatedMovement: PlaceAuthenticatedMovement, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpEvent<any>>;
+    public trackAuthenticatedMovementInPlace(placeAuthenticatedMovement: PlaceAuthenticatedMovement, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined}): Observable<any> {
+        if (placeAuthenticatedMovement === null || placeAuthenticatedMovement === undefined) {
+            throw new Error('Required parameter placeAuthenticatedMovement was null or undefined when calling trackAuthenticatedMovementInPlace.');
+        }
 
         let headers = this.defaultHeaders;
 

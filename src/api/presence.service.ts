@@ -17,8 +17,8 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
-import { AuthResponseUser } from '../model/models';
-import { AuthenticationDataUser } from '../model/models';
+import { OrganizationPresenceCounter } from '../model/models';
+import { PlacePresenceCounter } from '../model/models';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -28,7 +28,7 @@ import { Configuration }                                     from '../configurat
 @Injectable({
   providedIn: 'root'
 })
-export class UserAuthenticationService {
+export class PresenceService {
 
     protected basePath = 'http://localhost:8080';
     public defaultHeaders = new HttpHeaders();
@@ -83,18 +83,18 @@ export class UserAuthenticationService {
     }
 
     /**
-     * Lets the user login via the authentication service.
-     * Lets the user login via the authentication service.
-     * @param authenticationDataUser 
+     * Gets the number of presences in an organization given its organizationId.
+     * Gets the number of presences in an organization given its organizationId.
+     * @param organizationId ID of an organization.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public userLogin(authenticationDataUser: AuthenticationDataUser, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<AuthResponseUser>;
-    public userLogin(authenticationDataUser: AuthenticationDataUser, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<AuthResponseUser>>;
-    public userLogin(authenticationDataUser: AuthenticationDataUser, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<AuthResponseUser>>;
-    public userLogin(authenticationDataUser: AuthenticationDataUser, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
-        if (authenticationDataUser === null || authenticationDataUser === undefined) {
-            throw new Error('Required parameter authenticationDataUser was null or undefined when calling userLogin.');
+    public getOrganizationPresenceCounterById(organizationId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<OrganizationPresenceCounter>;
+    public getOrganizationPresenceCounterById(organizationId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<OrganizationPresenceCounter>>;
+    public getOrganizationPresenceCounterById(organizationId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<OrganizationPresenceCounter>>;
+    public getOrganizationPresenceCounterById(organizationId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+        if (organizationId === null || organizationId === undefined) {
+            throw new Error('Required parameter organizationId was null or undefined when calling getOrganizationPresenceCounterById.');
         }
 
         let headers = this.defaultHeaders;
@@ -112,22 +112,12 @@ export class UserAuthenticationService {
         }
 
 
-        // to determine the Content-Type header
-        const consumes: string[] = [
-            'application/json'
-        ];
-        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
-        if (httpContentTypeSelected !== undefined) {
-            headers = headers.set('Content-Type', httpContentTypeSelected);
-        }
-
         let responseType: 'text' | 'json' = 'json';
         if(httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
             responseType = 'text';
         }
 
-        return this.httpClient.post<AuthResponseUser>(`${this.configuration.basePath}/authentication/userLogin`,
-            authenticationDataUser,
+        return this.httpClient.get<OrganizationPresenceCounter>(`${this.configuration.basePath}/presence/organization/${encodeURIComponent(String(organizationId))}`,
             {
                 responseType: <any>responseType,
                 withCredentials: this.configuration.withCredentials,
@@ -139,60 +129,18 @@ export class UserAuthenticationService {
     }
 
     /**
-     * Lets the user logout from the system.
-     * Lets the user logout from the system.
+     * Gets the number of presences in a place given its placeId.
+     * Gets the number of presences in a place given its placeId.
+     * @param placeId ID of a place.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public userLogout(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<any>;
-    public userLogout(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpResponse<any>>;
-    public userLogout(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpEvent<any>>;
-    public userLogout(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined}): Observable<any> {
-
-        let headers = this.defaultHeaders;
-
-        let httpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
-        if (httpHeaderAcceptSelected === undefined) {
-            // to determine the Accept header
-            const httpHeaderAccepts: string[] = [
-            ];
-            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        }
-        if (httpHeaderAcceptSelected !== undefined) {
-            headers = headers.set('Accept', httpHeaderAcceptSelected);
-        }
-
-
-        let responseType: 'text' | 'json' = 'json';
-        if(httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
-            responseType = 'text';
-        }
-
-        return this.httpClient.post<any>(`${this.configuration.basePath}/authentication/userLogout`,
-            null,
-            {
-                responseType: <any>responseType,
-                withCredentials: this.configuration.withCredentials,
-                headers: headers,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * Lets the user registrate into the system.
-     * Lets the user registrate into the system.
-     * @param authenticationDataUser 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public userRegistration(authenticationDataUser: AuthenticationDataUser, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<AuthResponseUser>;
-    public userRegistration(authenticationDataUser: AuthenticationDataUser, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<AuthResponseUser>>;
-    public userRegistration(authenticationDataUser: AuthenticationDataUser, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<AuthResponseUser>>;
-    public userRegistration(authenticationDataUser: AuthenticationDataUser, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
-        if (authenticationDataUser === null || authenticationDataUser === undefined) {
-            throw new Error('Required parameter authenticationDataUser was null or undefined when calling userRegistration.');
+    public getPlacePresenceCounterById(placeId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<PlacePresenceCounter>;
+    public getPlacePresenceCounterById(placeId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<PlacePresenceCounter>>;
+    public getPlacePresenceCounterById(placeId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<PlacePresenceCounter>>;
+    public getPlacePresenceCounterById(placeId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+        if (placeId === null || placeId === undefined) {
+            throw new Error('Required parameter placeId was null or undefined when calling getPlacePresenceCounterById.');
         }
 
         let headers = this.defaultHeaders;
@@ -210,22 +158,12 @@ export class UserAuthenticationService {
         }
 
 
-        // to determine the Content-Type header
-        const consumes: string[] = [
-            'application/json'
-        ];
-        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
-        if (httpContentTypeSelected !== undefined) {
-            headers = headers.set('Content-Type', httpContentTypeSelected);
-        }
-
         let responseType: 'text' | 'json' = 'json';
         if(httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
             responseType = 'text';
         }
 
-        return this.httpClient.post<AuthResponseUser>(`${this.configuration.basePath}/authentication/userRegistration`,
-            authenticationDataUser,
+        return this.httpClient.get<PlacePresenceCounter>(`${this.configuration.basePath}/presence/place/${encodeURIComponent(String(placeId))}`,
             {
                 responseType: <any>responseType,
                 withCredentials: this.configuration.withCredentials,

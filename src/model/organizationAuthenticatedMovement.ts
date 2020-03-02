@@ -15,8 +15,7 @@ import { Movement } from './movement';
 /**
  * Movement to an organization made with the authenticated trackingMode.
  */
-export interface OrganizationAuthenticatedMovement { 
-    movement: Movement;
+export interface OrganizationAuthenticatedMovement extends Movement { 
     /**
      * Unique identifier of the organization in which the user had access.
      */
@@ -26,4 +25,7 @@ export interface OrganizationAuthenticatedMovement {
      */
     ldapId: number;
 }
+export namespace OrganizationAuthenticatedMovement {
+}
+
 

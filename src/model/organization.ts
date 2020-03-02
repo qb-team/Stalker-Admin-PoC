@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { Address } from './address';
 
 
 /**
@@ -32,16 +31,34 @@ export interface Organization {
      * Image/logo for the organization which gets shown on the application.
      */
     image?: string;
-    address: Address;
+    /**
+     * The street where the organization is located.
+     */
+    street: string;
+    /**
+     * The number in the street where the organization is located.
+     */
+    number: string;
+    /**
+     * The postcode where the organization is located.
+     */
+    postCode?: number;
+    /**
+     * The city where the organization is located.
+     */
+    city: string;
+    /**
+     * The country where the organization is located.
+     */
+    country: string;
     /**
      * URL or IP address of the LDAP server of the organization. If it\'s required a specific TCP port (different from LDAP\'s default) it must be specified. Needed only if trackingMethod is set to authenticated.
      */
     serverLDAP?: string;
-    creationDate: string;
     /**
      * When the organization was added to the system.
      */
-    modifyDate: object;
+    creationDate: Date;
     /**
      * When the organization parameters were last changed.
      */
