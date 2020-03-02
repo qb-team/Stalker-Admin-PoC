@@ -11,7 +11,7 @@ import { PresenceService } from 'src/api/api';
   templateUrl: './content-track-users-number.component.html',
   styleUrls: ['./content-track-users-number.component.css']
 })
-export class ContentTrackUsersNumberComponent implements OnInit, DoCheck {
+export class ContentTrackUsersNumberComponent implements OnInit {
   @Input() org: Organization;
   UserNumber: OrganizationPresenceCounter;
   constructor(private ds: DataService, private ps: PresenceService) { }
@@ -21,14 +21,6 @@ export class ContentTrackUsersNumberComponent implements OnInit, DoCheck {
      this.ps.getOrganizationPresenceCounterById(this.org.id).subscribe((counter: OrganizationPresenceCounter) => {
        this.UserNumber = counter;
      });
-  }
-
-  ngDoCheck()
-  {
-    this.ds.org.subscribe((org: Organization) => { this.org = org; });
-    this.ps.getOrganizationPresenceCounterById(this.org.id).subscribe((counter: OrganizationPresenceCounter) => {
-      this.UserNumber = counter;
-    });
   }
 
 }
