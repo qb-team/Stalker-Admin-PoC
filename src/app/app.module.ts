@@ -28,6 +28,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ContentHomeComponent } from './control-panel/content/content-home/content-home.component';
 import { ContentTrackUsersNumberComponent } from './control-panel/content/content-track-users/content-track-users-number/content-track-users-number.component';
 import { ControlPanelComponent } from './control-panel/control-panel.component';
+import { ContentTrackUsersGeneralInformationsComponent } from './control-panel/content/content-track-users/content-track-users-general-informations/content-track-users-general-informations.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { ControlPanelComponent } from './control-panel/control-panel.component';
     FooterComponent,
     ContentHomeComponent,
     ContentTrackUsersNumberComponent,
-    ControlPanelComponent
+    ControlPanelComponent,
+    ContentTrackUsersGeneralInformationsComponent
   ],
   imports: [
     BrowserModule,
