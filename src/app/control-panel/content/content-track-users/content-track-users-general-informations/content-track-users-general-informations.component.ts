@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/services/data.service';
+import { Organization } from 'src/model/models';
 
 @Component({
   selector: 'app-content-track-users-general-informations',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContentTrackUsersGeneralInformationsComponent implements OnInit {
 
-  constructor() { }
+  /*
+  * The organization currently active
+  */
+ org: Organization;
+
+  constructor(private ds: DataService) { }
 
   ngOnInit(): void {
+    this.ds.org.subscribe((org: Organization) => { this.org = org; });
   }
 
 }
