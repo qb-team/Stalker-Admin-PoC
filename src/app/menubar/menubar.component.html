@@ -6,8 +6,8 @@
       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Organizzazione
       </a>
-      <ul class="dropdown-menu" aria-labelledby="navbarDropdown" *ngFor="let org of orgArr; let i = index"><!--*ngFor="let org of organizations; index as i"-->
-        <li class="dropdown-item" (click)="setOrg($event)">{{org[i]}}</li>   <!--id="first_org"-->
+      <ul class="dropdown-menu" aria-labelledby="navbarDropdown"><!--*ngFor="let org of organizations; index as i"-->
+        <li class="dropdown-item" (click)="setOrg($event)" *ngFor="let o of orgArr">{{o.name}}</li>   <!--id="first_org"-->
       </ul>
     </li>
   </ul>

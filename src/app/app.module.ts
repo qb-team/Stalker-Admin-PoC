@@ -26,6 +26,7 @@ import { LoginComponent } from './login/login.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { FooterComponent } from './footer/footer.component';
 import { ContentHomeComponent } from './content/content-home/content-home.component';
+import { ContentTrackUsersNumberComponent } from './content/content-track-users/content-track-users-number/content-track-users-number.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { ContentHomeComponent } from './content/content-home/content-home.compon
     LoginComponent,
     ResetPasswordComponent,
     FooterComponent,
-    ContentHomeComponent
+    ContentHomeComponent,
+    ContentTrackUsersNumberComponent
   ],
   imports: [
     BrowserModule,

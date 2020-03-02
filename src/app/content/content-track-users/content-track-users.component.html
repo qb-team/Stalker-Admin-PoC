@@ -1,20 +1,20 @@
 <div>
     <h1 class="move">Nome dell'organizzazione: {{org}} </h1>
-    <h2 class="move">Totale utenti all'interno: {{ presentUsersOrg }}</h2>
     <table class="table" summary="Monthly savings for the Flintstones family">
         <thead>
             <tr>
                 <th colspan="2">Lista delle coordinate dell'organizzazione</th>
             </tr>
             <tr>
+                <th scope="col">#Punto</th>
                 <th scope="col">Coordinata X</th>
                 <th scope="col">Coordinata Y</th>
             </tr>
         </thead>
         <tr *ngFor="let coord of coordinates; index as i">
             <th scope="row">{{ i }}</th>
-            <td>{{ coord[i].lat }}</td>
-            <td>{{ coord[i].long }}</td>
+            <td>{{ coord.lat }}</td>
+            <td>{{ coord.long }}</td>
         </tr>
     </table>
 </div>

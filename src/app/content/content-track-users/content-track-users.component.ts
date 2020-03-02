@@ -5,6 +5,7 @@ import { Component, OnInit, DoCheck, Input } from '@angular/core';
 import { OrganizationService } from '../../../api/api';
 import { Organization } from 'src/model/models';
 import { Observable } from 'rxjs';
+import { DataService } from 'src/app/services/data.service';
 
 
 @Component({
@@ -26,7 +27,7 @@ export class ContentTrackUsersComponent implements OnInit {
   /*
   * An observable of an organization
   */
-  ob: Observable<Organization>;
+  ob: Organization;
 
   /*
   * A string to store the coordinates of the organization's perimeter in json format
@@ -38,7 +39,7 @@ export class ContentTrackUsersComponent implements OnInit {
   */
   coordinates;
 
-  constructor( /*private os: OrganizationService*/ ) {
+  constructor( private os: OrganizationService, private ds: DataService ) {
     this.presentUsersOrg = this.getUsers();
   }
 
@@ -51,11 +52,9 @@ export class ContentTrackUsersComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //this.ob = this.os.getOrganization(0);
-    //this.ob.subscribe((org: Organization) => {
-      //json_coordinates = org.trackingArea;
-      //this.coordinates = JSON.parse(this.json_coordinates);
-    //})
+    this.os.getOrganizationById(1).subscribe((o: Organization) => { this.ob = o; this.json_coordinates = o.trackingArea;
+      this.coordinates = JSON.parse(this.json_coordinates).Organizzazioni;});
+    this.ds.users_number.emit(this.presentUsersOrg);
   }
 
 
