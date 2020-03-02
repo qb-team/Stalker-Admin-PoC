@@ -1,9 +1,10 @@
 # Qbteam User Interface Stalker
 ### Stalker-Admin-PoC-Auth
 
-<img src='https://avatars2.githubusercontent.com/u/58329404?s=200&v=4' alt=""/>
+<img src='https://avatars2.githubusercontent.com/u/58329404?s=200&v=4' alt=""/> 
 
-[![](https://img.shields.io/badge/Project-C5-%2343a42b)](https://www.math.unipd.it/~tullio/IS-1/2019/Progetto/C5.pdf)<br/>
+[![](https://img.shields.io/badge/Project-C5-%2343a42b)](https://www.math.unipd.it/~tullio/IS-1/2019/Progetto/C5.pdf)
+[![npm version](https://badge.fury.io/js/%40angular%2Fcore.svg)](https://www.npmjs.com/@angular/core)<br/>
 Project's qbteam for software engineering course. This is User Inteface for project Stalker.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.3, and the login is managed by Firebase :fire:
