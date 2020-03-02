@@ -8,7 +8,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule } from '@angular/common/http';
 
 /* service */
 import { AuthenticationService } from './services/authentication.service';
@@ -18,15 +18,16 @@ import { DataService } from './services/data.service';
 import { AppComponent } from './app.component';
 
 /* child component */
-import { MenuFunctionalityComponent } from './menu-functionality/menu-functionality.component';
-import { MenubarComponent } from './menubar/menubar.component';
-import { ContentComponent } from './content/content.component';
-import { ContentTrackUsersComponent } from './content/content-track-users/content-track-users.component';
+import { MenuFunctionalityComponent } from './control-panel/menu-functionality/menu-functionality.component';
+import { MenubarComponent } from './control-panel/menubar/menubar.component';
+import { ContentComponent } from './control-panel/content/content.component';
+import { ContentTrackUsersComponent } from './control-panel/content/content-track-users/content-track-users.component';
 import { LoginComponent } from './login/login.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { FooterComponent } from './footer/footer.component';
-import { ContentHomeComponent } from './content/content-home/content-home.component';
-import { ContentTrackUsersNumberComponent } from './content/content-track-users/content-track-users-number/content-track-users-number.component';
+import { ContentHomeComponent } from './control-panel/content/content-home/content-home.component';
+import { ContentTrackUsersNumberComponent } from './control-panel/content/content-track-users/content-track-users-number/content-track-users-number.component';
+import { ControlPanelComponent } from './control-panel/control-panel.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { ContentTrackUsersNumberComponent } from './content/content-track-users/
     ResetPasswordComponent,
     FooterComponent,
     ContentHomeComponent,
-    ContentTrackUsersNumberComponent
+    ContentTrackUsersNumberComponent,
+    ControlPanelComponent
   ],
   imports: [
     BrowserModule,

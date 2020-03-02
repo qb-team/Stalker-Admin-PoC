@@ -2,8 +2,8 @@
  * Vertical menu in the panel control
  */
 import { Component, OnInit, AfterContentInit, DoCheck } from '@angular/core';
-import { DataService } from '../services/data.service';
-import { AuthenticationService } from '../services/authentication.service';
+import { DataService } from '../../services/data.service';
+import { AuthenticationService } from '../../services/authentication.service';
 import { OrganizationService } from 'src/api/api';
 import { Observable } from 'rxjs';
 import { Organization } from 'src/model/models';

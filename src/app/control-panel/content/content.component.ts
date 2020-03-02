@@ -2,7 +2,7 @@
 * A wrapper component to hold a content-specific component. Switching between functionalities will cause specific components to show or hide into this component
 */
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../services/data.service';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-content',

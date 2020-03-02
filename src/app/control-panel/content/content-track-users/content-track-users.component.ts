@@ -2,7 +2,7 @@
 * Specific-content component to show data about user-tracking
 */
 import { Component, OnInit, DoCheck, Input } from '@angular/core';
-import { OrganizationService } from '../../../api/api';
+import { OrganizationService } from '../../../../api/api';
 import { Organization } from 'src/model/models';
 import { Observable } from 'rxjs';
 import { DataService } from 'src/app/services/data.service';

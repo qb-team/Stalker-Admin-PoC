@@ -2,7 +2,7 @@
 * A side-menu that offers all the functionalities available for the administrator on the current organization
 */
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../services/data.service';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-menu-functionality',
