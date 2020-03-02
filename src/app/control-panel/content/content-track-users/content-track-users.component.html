@@ -1,6 +1,6 @@
 <div>
-    <h1 class="move">Nome dell'organizzazione: {{org.name}} </h1>
-    <table class="table" summary="Monthly savings for the Flintstones family">
+    <h1>Nome dell'organizzazione: {{org.name}} </h1>
+    <table class="table">
         <thead>
             <tr>
                 <th colspan="3">Lista delle coordinate dell'organizzazione</th>
@@ -11,10 +11,12 @@
                 <th scope="col">Coordinata Y</th>
             </tr>
         </thead>
-        <tr *ngFor="let coord of coordinates; index as i">
-            <th scope="row">{{ i }}</th>
+        <tbody>
+          <tr *ngFor="let coord of coordinates; index as i">
+            <th scope="row">{{ i+1 }}</th>
             <td>{{ coord.lat }}</td>
             <td>{{ coord.long }}</td>
-        </tr>
+          </tr>
+        </tbody>
     </table>
 </div>

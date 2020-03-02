@@ -38,10 +38,11 @@ export class LoginComponent implements OnInit {
   */
   signIn() {
     try {
-      this.authenticationService.SignIn(this.email, this.password);
+
       if (this.email === '' || this.password === '') {
         this.validate = false;
       } else {
+        this.authenticationService.SignIn(this.email, this.password);
         this.validate = true;
       }
       this.email = '';
