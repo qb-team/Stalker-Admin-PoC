@@ -1,13 +1,13 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <span id="img"></span>
-  <span class="btn btn-light navbar-brand position" (click)="homePage()"> {{organization}} </span>
+  <span class="btn btn-light navbar-brand position" (click)="homePage()" *ngIf="organization !== undefined"> {{organization.name}} </span>
   <ul class="navbar-nav mr-auto " id="oneline">
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Organizzazione
       </a>
       <ul class="dropdown-menu" aria-labelledby="navbarDropdown"><!--*ngFor="let org of organizations; index as i"-->
-        <li class="dropdown-item" (click)="setOrg($event)" *ngFor="let o of orgArr">{{o.name}}</li>   <!--id="first_org"-->
+        <li class="dropdown-item" (click)="setOrg($event)" *ngFor="let o of orgArr; index as i" id="{{i}}">{{o.name}}</li>   <!--id="first_org"-->
       </ul>
     </li>
   </ul>

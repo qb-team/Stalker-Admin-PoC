@@ -2,6 +2,7 @@
 * Shows minimal informations about the interface usage
 */
 import { Component, OnInit, Input } from '@angular/core';
+import { Organization } from 'src/model/models';
 
 @Component({
   selector: 'app-content-home',
@@ -10,7 +11,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ContentHomeComponent implements OnInit {
 
-  @Input() org: string;
+  @Input() org: Organization;
   constructor() { }
 
   ngOnInit(): void {

@@ -1,7 +1,7 @@
 /*
  * Vertical menu in the panel control
  */
-import { Component, OnInit, AfterContentInit, DoCheck } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { AuthenticationService } from '../../services/authentication.service';
 import { OrganizationService } from 'src/api/api';
@@ -14,7 +14,7 @@ import { Organization } from 'src/model/models';
   styleUrls: ['./menubar.component.css']
 })
 export class MenubarComponent implements OnInit {
-  organization: string;
+  organization: Organization;
   orgArr: Array<Organization>;
   constructor(private ds: DataService, private authenticationService: AuthenticationService, private os: OrganizationService) {  }
 
@@ -22,15 +22,17 @@ export class MenubarComponent implements OnInit {
    * Initialization and refresh the list of organization
    */
   ngOnInit() {
-    this.os.getOrganizationList().subscribe((obs: Array<Organization>) => { this.orgArr = obs, console.log(this.orgArr.length), this.organization = this.orgArr[0].name; this.ds.org.emit(this.organization); });
-    //this.organization = document.getElementById('first_org').innerHTML; // è deprecato
+    this.os.getOrganizationList().subscribe((obs: Array<Organization>) => {
+      this.orgArr = obs, this.organization = this.orgArr[0];
+      this.ds.org.emit(this.organization);
+    });
   }
 
   /*
    * It updates the name of organization selected
    */
   setOrg(click: any) {
-    this.organization = click.target.innerHTML;
+    this.organization = this.orgArr[click.target.attributes.id.value];
     this.ds.org.emit(this.organization);
   }
 

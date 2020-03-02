@@ -3,6 +3,7 @@
 */
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
+import { Organization } from 'src/model/models';
 
 @Component({
   selector: 'app-content',
@@ -13,7 +14,7 @@ export class ContentComponent implements OnInit {
   /*
   * The actually selected organization
   */
-  organization: string;
+  organization: Organization;
 
   /*
   * The string used to decide witch specific-component has to be showed
@@ -27,7 +28,7 @@ export class ContentComponent implements OnInit {
   * Finally, it sets the active specific-component to the home page content component (content-home)
   */
   ngOnInit() {
-    this.ds.org.subscribe((org: string) => { this.organization = org; });
+    this.ds.org.subscribe((org: Organization) => { this.organization = org; });
     this.ds.active_content.subscribe((active_content: string) => { this.ac = active_content; });
     this.ac = 'Home page';
   }

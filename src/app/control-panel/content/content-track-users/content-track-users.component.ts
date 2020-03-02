@@ -1,7 +1,7 @@
 /*
 * Specific-content component to show data about user-tracking
 */
-import { Component, OnInit, DoCheck, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { OrganizationService } from '../../../../api/api';
 import { Organization } from 'src/model/models';
 import { Observable } from 'rxjs';
@@ -17,7 +17,7 @@ export class ContentTrackUsersComponent implements OnInit {
   /*
   * The actual organization selected
   */
-  @Input() org: string;
+  @Input() org: Organization;
 
   /*
   * The number of users actually inside the organization's perimeter
@@ -52,9 +52,10 @@ export class ContentTrackUsersComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.os.getOrganizationById(1).subscribe((o: Organization) => { this.ob = o; this.json_coordinates = o.trackingArea;
-      this.coordinates = JSON.parse(this.json_coordinates).Organizzazioni;});
-    this.ds.users_number.emit(this.presentUsersOrg);
+    this.ds.org.subscribe((org: Organization) => { this.json_coordinates = org.trackingArea; this.coordinates = JSON.parse(this.json_coordinates).Organizzazioni; });
+    this.json_coordinates = this.org.trackingArea;
+    this.coordinates = JSON.parse(this.json_coordinates).Organizzazioni;
+    //this.ds.users_number.emit(this.presentUsersOrg);
   }
 
 
